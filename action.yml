@@ -1,6 +1,9 @@
 name: Databricks Deploy
 description: Update a Databricks Repo/Git Folder to a target branch.
 author: Connor Flynn
+branding:
+  icon: 'arrow-down-circle'     # The name of the icon to use
+  color: 'orange'   
 
 inputs:
   databricks-repo-branch:
