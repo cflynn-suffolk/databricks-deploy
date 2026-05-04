@@ -26,4 +26,4 @@ runs:
         DATABRICKS_TOKEN: ${{ inputs.databricks-token }}
         DATABRICKS_HOST: ${{ inputs.databricks-host }}
         DATABRICKS_REPO_ID: ${{ inputs.databricks-repo-id }}
-      run: ${{ github.action_path }}/deploy.sh
+      run: bash ${{ github.action_path }}/deploy.sh
