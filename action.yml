@@ -1,0 +1,29 @@
+name: Databricks Deploy
+description: Update a Databricks Repo/Git Folder to a target branch.
+author: Connor Flynn
+
+inputs:
+  databricks-repo-branch:
+    description: Branch to deploy in Databricks.
+    required: true
+  databricks-token:
+    description: Databricks personal access token.
+    required: true
+  databricks-host:
+    description: Databricks workspace host, e.g. https://adb-xxx.azuredatabricks.net
+    required: true
+  databricks-repo-id:
+    description: Databricks Repo/Git Folder ID.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Deploy branch to Databricks Repo
+      shell: bash
+      env:
+        DATABRICKS_REPO_BRANCH: ${{ inputs.databricks-repo-branch }}
+        DATABRICKS_TOKEN: ${{ inputs.databricks-token }}
+        DATABRICKS_HOST: ${{ inputs.databricks-host }}
+        DATABRICKS_REPO_ID: ${{ inputs.databricks-repo-id }}
+      run: ${{ github.action_path }}/deploy.sh
